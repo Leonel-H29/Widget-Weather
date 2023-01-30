@@ -30,6 +30,7 @@ export default function WeatherApiComp() {
           city
       );
       const json = await request.json();
+      setWeather(json);
       console.log(json);
     } catch (error) {
       console.log(error);
