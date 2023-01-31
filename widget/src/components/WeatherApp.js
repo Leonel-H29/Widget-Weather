@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import WeatherFormComp from './WeatherForm';
 import WeatherInfoComp from './WeatherInfo';
 import { Container } from '@mui/material';
+import ResponsiveAppBar from './MainMenu';
 //const WeatherApiComp = () => {
 //return <div>Hola chavos!</div>;
 //};
@@ -43,11 +44,14 @@ export default function WeatherApiComp() {
     loadInfo(city);
   }
   return (
-    <Container fixed>
-      <h1>Widget Weather React</h1>
-      <WeatherFormComp onChangeCity={handleChangeCity} />
-      <br />
-      <WeatherInfoComp weather={weather} />
-    </Container>
+    <div>
+      <ResponsiveAppBar />
+      <Container fixed>
+        <h1>Widget Weather React</h1>
+        <WeatherFormComp onChangeCity={handleChangeCity} />
+        <br />
+        <WeatherInfoComp weather={weather} />
+      </Container>
+    </div>
   );
 }
