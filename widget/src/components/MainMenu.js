@@ -12,6 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+//import {} from '@fortawesome/react-fontawesome'
+//import {} from '@fortawesome/fontawesome-svg-core'
+import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const pages = ['Home', 'About of', 'Repository'];
 const settings = ['Profile GitHub'];
@@ -40,7 +44,9 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
+          <FontAwesomeIcon icon={faSun} />
+
           <Typography
             variant="h6"
             noWrap
@@ -51,12 +57,12 @@ function ResponsiveAppBar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              marginLeft: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Widget Weather
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

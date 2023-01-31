@@ -47,7 +47,8 @@ export default function WeatherApiComp() {
     <div>
       <ResponsiveAppBar />
       <Container fixed>
-        <h1>Widget Weather React</h1>
+        <h1 style={{ fontFamily: 'sans-serif' }}>Widget Weather on React</h1>
+        <h3 style={{ fontFamily: 'revert' }}>Write the name of city: </h3>
         <WeatherFormComp onChangeCity={handleChangeCity} />
         <br />
         <WeatherInfoComp weather={weather} />
