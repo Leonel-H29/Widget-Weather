@@ -3,6 +3,7 @@ import WeatherFormComp from './WeatherForm';
 import WeatherInfoComp from './WeatherInfo';
 import { Container } from '@mui/material';
 import ResponsiveAppBar from './MainMenu';
+import Loadding from './Loadding';
 //const WeatherApiComp = () => {
 //return <div>Hola chavos!</div>;
 //};
@@ -41,7 +42,9 @@ export default function WeatherApiComp() {
 
   function handleChangeCity(city) {
     setWeather(null);
-    loadInfo(city);
+    setTimeout(() => {
+      loadInfo(city);
+    }, 3000);
   }
   return (
     <div>
@@ -51,7 +54,11 @@ export default function WeatherApiComp() {
         <h3 style={{ fontFamily: 'revert' }}>Write the name of city: </h3>
         <WeatherFormComp onChangeCity={handleChangeCity} />
         <br />
-        <WeatherInfoComp weather={weather} />
+        {/*
+        Si weather no es nulo me mostrara el mapa con la ubicacion de la ciudad ingresada,
+        sino seguira cargando
+        */}
+        {weather ? <WeatherInfoComp weather={weather} /> : <Loadding />}
       </Container>
     </div>
   );
