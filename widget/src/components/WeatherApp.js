@@ -23,13 +23,13 @@ export default function WeatherApiComp() {
 
   async function loadInfo(city = 'london') {
     try {
-      const request = await fetch(
+      const API_WEATHER_URL =
         process.env.REACT_APP_URL +
-          '&key=' +
-          process.env.REACT_APP_KEY +
-          '&q=' +
-          city
-      );
+        '&key=' +
+        process.env.REACT_APP_KEY +
+        '&q=' +
+        city;
+      const request = await fetch(API_WEATHER_URL);
       const json = await request.json();
       setWeather(json);
       //console.log(json);
@@ -46,6 +46,7 @@ export default function WeatherApiComp() {
     <Container fixed>
       <h1>Widget Weather React</h1>
       <WeatherFormComp onChangeCity={handleChangeCity} />
+      <br />
       <WeatherInfoComp weather={weather} />
     </Container>
   );

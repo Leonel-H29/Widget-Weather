@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TextField } from '@mui/material';
+import { Container } from '@mui/material';
 
 export default function WeatherFormComp({ onChangeCity }) {
   const [city, setCity] = useState('');
@@ -14,13 +15,18 @@ export default function WeatherFormComp({ onChangeCity }) {
     onChangeCity(city);
   }
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        {/*
-        <input type="text" onChange={onChange}></input>
-  */}
-        <TextField id="filled-basic" label="City" onChange={onChange} />
-      </form>
+    <div>
+      <Container>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            id="filled-basic"
+            label="City"
+            variant="outlined"
+            onChange={onChange}
+            fullWidth={true}
+          />
+        </form>
+      </Container>
     </div>
   );
 }
