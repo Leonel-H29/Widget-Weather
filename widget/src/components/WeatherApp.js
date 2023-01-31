@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import WeatherFormComp from './WeatherForm';
 import WeatherInfoComp from './WeatherInfo';
+import { Container } from '@mui/material';
 //const WeatherApiComp = () => {
 //return <div>Hola chavos!</div>;
 //};
@@ -31,7 +32,7 @@ export default function WeatherApiComp() {
       );
       const json = await request.json();
       setWeather(json);
-      console.log(json);
+      //console.log(json);
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +43,10 @@ export default function WeatherApiComp() {
     loadInfo(city);
   }
   return (
-    <div>
+    <Container fixed>
       <h1>Widget Weather React</h1>
       <WeatherFormComp onChangeCity={handleChangeCity} />
       <WeatherInfoComp weather={weather} />
-    </div>
+    </Container>
   );
 }
