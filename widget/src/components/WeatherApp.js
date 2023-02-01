@@ -4,9 +4,12 @@ import WeatherInfoComp from './WeatherInfo';
 import { Container } from '@mui/material';
 import ResponsiveAppBar from './MainMenu';
 import Loadding from './Loadding';
+import Error from './Error';
+import { If, Then, Else, ElseIf } from 'react-if-elseif-else-render';
 
 export default function WeatherApiComp() {
   const [weather, setWeather] = useState(null);
+  const [code, setCode] = useState(0);
 
   //Muestra la ciudad cargada por defecto
   useEffect(() => {
@@ -29,14 +32,20 @@ export default function WeatherApiComp() {
       const request = await fetch(API_WEATHER_URL);
       const json = await request.json();
       setWeather(json);
-      //console.log(json);
+      setCode(request.status);
+      console.log(json);
     } catch (error) {
+      alert('Not found city!');
+      setWeather(null);
+      setCode(1006);
       console.log(error);
+      throw error;
     }
   }
 
   function handleChangeCity(city) {
     setWeather(null);
+    setCode(0);
     setTimeout(() => {
       loadInfo(city);
     }, 3000);
@@ -53,7 +62,23 @@ export default function WeatherApiComp() {
         Si weather no es nulo me mostrara el mapa con la ubicacion de la ciudad ingresada,
         sino seguira cargando
         */}
+        {/* 
         {weather ? <WeatherInfoComp weather={weather} /> : <Loadding />}
+
+        
+        */}
+        <If condition={code === 200 && weather !== null}>
+          <Then>
+            <WeatherInfoComp weather={weather} />
+          </Then>
+          <ElseIf condition={code === 0}>
+            <Loadding />
+          </ElseIf>
+          <Else>
+            <pre>Error</pre>
+            <Error />
+          </Else>
+        </If>
       </Container>
     </div>
   );
