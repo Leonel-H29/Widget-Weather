@@ -24,6 +24,7 @@ export default function WeatherFormComp({ onChangeCity }) {
             variant="outlined"
             onChange={onChange}
             fullWidth={true}
+            required
           />
         </form>
       </Container>

@@ -4,11 +4,6 @@ import WeatherInfoComp from './WeatherInfo';
 import { Container } from '@mui/material';
 import ResponsiveAppBar from './MainMenu';
 import Loadding from './Loadding';
-//const WeatherApiComp = () => {
-//return <div>Hola chavos!</div>;
-//};
-
-//export default WeatherApiComp;
 
 export default function WeatherApiComp() {
   const [weather, setWeather] = useState(null);
