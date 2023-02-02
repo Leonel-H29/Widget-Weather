@@ -6,6 +6,7 @@ import ResponsiveAppBar from './MainMenu';
 import axios from 'axios';
 import Loadding from './Loadding';
 import Error from './Error';
+import Footer from './Footer';
 
 const API_WEATHER_URL =
   process.env.REACT_APP_URL + '&key=' + process.env.REACT_APP_KEY + '&q=';
@@ -65,6 +66,7 @@ export default function WeatherApiComp() {
           <Loadding />
         )}
       </Container>
+      <Footer />
     </div>
   );
 }
