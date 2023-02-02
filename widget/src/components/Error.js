@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { Button, Alert, Container } from '@mui/material';
 
 export default function Error() {
   return (
-    <Container>
+    <Container fixed>
       <Card sx={{ display: 'flex' }}>
         <Box
           sx={{
@@ -16,7 +17,20 @@ export default function Error() {
             alignItems: 'center',
           }}
         >
-          <CardContent sx={{ flex: '1 0 auto' }}>Not found 404</CardContent>
+          <CardContent sx={{ flex: '1 0 auto', margin: '0 auto' }}>
+            <Alert variant="filled" severity="error">
+              Not found 404
+            </Alert>
+            <br />
+            <Button
+              variant="contained"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              RELOAD
+            </Button>
+          </CardContent>
         </Box>
       </Card>
     </Container>

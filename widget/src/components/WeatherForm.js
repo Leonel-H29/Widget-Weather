@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { TextField } from '@mui/material';
-import { Container } from '@mui/material';
+import { TextField, Container } from '@mui/material';
 
 export default function WeatherFormComp({ onChangeCity }) {
   const [city, setCity] = useState('');
