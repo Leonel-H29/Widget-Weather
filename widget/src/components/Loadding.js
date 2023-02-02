@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 export default function Loadding() {
   return (
-    <Container flex>
+    <Container>
       <Card sx={{ display: 'flex' }}>
         <Box
           sx={{

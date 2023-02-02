@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 
 export default function Error() {
   return (
-    <Container flex>
+    <Container>
       <Card sx={{ display: 'flex' }}>
         <Box
           sx={{

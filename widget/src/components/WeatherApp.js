@@ -5,11 +5,12 @@ import { Container } from '@mui/material';
 import ResponsiveAppBar from './MainMenu';
 import Loadding from './Loadding';
 import Error from './Error';
-import { If, Then, Else, ElseIf } from 'react-if-elseif-else-render';
+//import { If, Then, Else, ElseIf } from 'react-if-elseif-else-render';
+//import { render } from '@testing-library/react';
 
 export default function WeatherApiComp() {
   const [weather, setWeather] = useState(null);
-  const [code, setCode] = useState(0);
+  const [fail, setFail] = useState(null);
 
   //Muestra la ciudad cargada por defecto
   useEffect(() => {
@@ -32,24 +33,24 @@ export default function WeatherApiComp() {
       const request = await fetch(API_WEATHER_URL);
       const json = await request.json();
       setWeather(json);
-      setCode(request.status);
-      console.log(json);
+      //console.log(json);
     } catch (error) {
-      alert('Not found city!');
-      setWeather(null);
-      setCode(1006);
-      console.log(error);
+      //alert('Not found city!');
+      //setWeather(error.error);
+      setFail(error);
+      //console.log(error.error);
       throw error;
     }
   }
 
   function handleChangeCity(city) {
     setWeather(null);
-    setCode(0);
+    //setCode(0);
     setTimeout(() => {
       loadInfo(city);
     }, 3000);
   }
+
   return (
     <div>
       <ResponsiveAppBar />
@@ -62,23 +63,14 @@ export default function WeatherApiComp() {
         Si weather no es nulo me mostrara el mapa con la ubicacion de la ciudad ingresada,
         sino seguira cargando
         */}
-        {/* 
-        {weather ? <WeatherInfoComp weather={weather} /> : <Loadding />}
 
-        
-        */}
-        <If condition={code === 200 && weather !== null}>
-          <Then>
-            <WeatherInfoComp weather={weather} />
-          </Then>
-          <ElseIf condition={code === 0}>
-            <Loadding />
-          </ElseIf>
-          <Else>
-            <pre>Error</pre>
-            <Error />
-          </Else>
-        </If>
+        {weather ? (
+          <WeatherInfoComp weather={weather} />
+        ) : fail ? (
+          <Error />
+        ) : (
+          <Loadding />
+        )}
       </Container>
     </div>
   );
