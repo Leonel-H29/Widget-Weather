@@ -40,6 +40,7 @@ export default function WeatherInfoComp({ weather }) {
                   color="text.secondary"
                   component="div"
                 >
+                  {weather?.location.localtime} -{' '}
                   {weather?.current.condition.text}
                 </Typography>
               </CardContent>
