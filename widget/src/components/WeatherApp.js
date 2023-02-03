@@ -25,9 +25,11 @@ export default function WeatherApiComp() {
   }, [weather]);
 
   async function loadInfo(city = 'london') {
+    console.log(API_WEATHER_URL + city);
     axios
       .get(API_WEATHER_URL + city)
       .then((response) => {
+        //console.log(response.data);
         setWeather(response.data);
       })
       .catch((error) => {
@@ -46,25 +48,27 @@ export default function WeatherApiComp() {
     <div>
       <ResponsiveAppBar />
       <Container fixed>
-        <h1 style={{ fontFamily: 'sans-serif' }}>Widget Weather on React</h1>
-        <h3 style={{ fontFamily: 'revert' }}>Write the name of city: </h3>
-        <WeatherFormComp onChangeCity={handleChangeCity} />
-        <br />
-        {/*
+        <section>
+          <h1 style={{ fontFamily: 'sans-serif' }}>Widget Weather on React</h1>
+          <h3 style={{ fontFamily: 'revert' }}>Write the name of city: </h3>
+          <WeatherFormComp onChangeCity={handleChangeCity} />
+          <br />
+          {/*
         Si se encuentra una falla muestrara el mensaje de error.
         Si weather no es nulo me mostrara el mapa con la ubicacion de la ciudad ingresada,
         sino seguira cargando
         */}
 
-        {fail ? (
-          <div>
-            <Error />
-          </div>
-        ) : weather ? (
-          <WeatherInfoComp weather={weather} />
-        ) : (
-          <Loadding />
-        )}
+          {fail ? (
+            <div>
+              <Error />
+            </div>
+          ) : weather ? (
+            <WeatherInfoComp weather={weather} />
+          ) : (
+            <Loadding />
+          )}
+        </section>
       </Container>
       <Footer />
     </div>
