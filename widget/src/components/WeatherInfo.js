@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import { Container, Grid } from '@mui/material';
-
+//import { If, Then } from 'react-if-elseif-else-render';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,6 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StyleInfo from './WeatherInfo.module.css';
 import moment from 'moment/moment';
+//import { useState, useEffect } from 'react';
 
 const Root = styled('div')(({ theme }) => ({
   width: '100%',
@@ -79,32 +80,39 @@ export default function WeatherInfoComp({ weather }) {
       {/*Pronosticos de los siguientes dias */}
       <h2>Weather Forecasts at {weather?.location.name} in next 7 days</h2>
       <Container className="pronosticos">
-        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {weather?.forecast.forecastday.map((pron) => (
-            <Grid item xs={12} sm={6} md={4} key={pron?.date}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  sx={{ height: 100, width: 100 }}
-                  image={`http:${pron?.day.condition.icon}`}
-                  title={pron?.day.condition.text}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {moment(pron?.date).format('ll')}
-                  </Typography>
-                  <Typography gutterBottom variant="h6" component="div">
-                    MIN: {pron?.day.mintemp_c} °
-                  </Typography>
-                  <Typography gutterBottom variant="h6" component="div">
-                    MAX: {pron?.day.maxtemp_c} °
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {pron?.day.condition.text}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+          {/*Controlo que el dia actual no coincida con un dia de los pronosticos */}
+          {weather?.forecast.forecastday
+            .filter(
+              (value) =>
+                moment(value?.date).format('L') !==
+                moment(weather?.location.localtime).format('L')
+            )
+            .map((pron) => (
+              <Grid item xs={12} sm={6} md={4} key={pron?.date}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia
+                    sx={{ height: 100, width: 100 }}
+                    image={`http:${pron?.day.condition.icon}`}
+                    title={pron?.day.condition.text}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {moment(pron?.date).format('ll')}
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="div">
+                      MIN: {pron?.day.mintemp_c} °
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="div">
+                      MAX: {pron?.day.maxtemp_c} °
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {pron?.day.condition.text}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </div>
