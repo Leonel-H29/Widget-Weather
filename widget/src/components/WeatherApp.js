@@ -25,7 +25,7 @@ export default function WeatherApiComp() {
   }, [weather]);
 
   async function loadInfo(city = 'london') {
-    console.log(API_WEATHER_URL + city);
+    //console.log(API_WEATHER_URL + city);
     axios
       .get(API_WEATHER_URL + city)
       .then((response) => {
