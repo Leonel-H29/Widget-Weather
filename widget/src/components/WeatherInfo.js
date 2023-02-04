@@ -97,7 +97,7 @@ export default function WeatherInfoComp({ weather }) {
                     title={pron?.day.condition.text}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="b" component="div">
                       {moment(pron?.date).format('ll')}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">

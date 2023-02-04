@@ -39,6 +39,9 @@ export default function WeatherApiComp() {
 
   function handleChangeCity(city) {
     setWeather(null);
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+    });
     setTimeout(() => {
       loadInfo(city);
     }, 3000);
