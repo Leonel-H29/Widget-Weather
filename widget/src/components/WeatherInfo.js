@@ -9,8 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StyleInfo from './WeatherInfo.module.css';
-//import { If, Then, Else } from 'react-if-elseif-else-render';
-//import Error from './Error';
+import moment from 'moment/moment';
 
 const Root = styled('div')(({ theme }) => ({
   width: '100%',
@@ -30,6 +29,13 @@ export default function WeatherInfoComp({ weather }) {
           <Card sx={{ display: 'flex' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <CardContent sx={{ flex: '1 0 auto' }}>
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                >
+                  {moment(weather?.location.localtime).format('LLL')}
+                </Typography>
                 <Typography component="div" variant="h6">
                   {weather?.location.name.toUpperCase()} -{' '}
                   {weather?.location.country.toUpperCase()}
@@ -42,7 +48,6 @@ export default function WeatherInfoComp({ weather }) {
                   color="text.secondary"
                   component="div"
                 >
-                  {weather?.location.localtime} -{' '}
                   {weather?.current.condition.text}
                 </Typography>
               </CardContent>
@@ -76,8 +81,8 @@ export default function WeatherInfoComp({ weather }) {
       <Container className="pronosticos">
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {weather?.forecast.forecastday.map((pron) => (
-            <Grid item xs={2}>
-              <Card sx={{ maxWidth: 345 }} key={pron?.date}>
+            <Grid item xs={12} sm={6} md={4} key={pron?.date}>
+              <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   sx={{ height: 100, width: 100 }}
                   image={`http:${pron?.day.condition.icon}`}
@@ -85,10 +90,13 @@ export default function WeatherInfoComp({ weather }) {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {pron?.date}
+                    {moment(pron?.date).format('ll')}
                   </Typography>
                   <Typography gutterBottom variant="h6" component="div">
-                    MIN: {pron?.day.mintemp_c} ° - MAX: {pron?.day.maxtemp_c} °
+                    MIN: {pron?.day.mintemp_c} °
+                  </Typography>
+                  <Typography gutterBottom variant="h6" component="div">
+                    MAX: {pron?.day.maxtemp_c} °
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {pron?.day.condition.text}

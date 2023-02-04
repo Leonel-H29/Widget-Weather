@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -19,13 +19,14 @@ function Copyright() {
 }
 
 function Footer(props) {
-  const { description, title } = props;
+  ///const { description, title } = props;
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          {title}
+          {/*{title} */}
+          Widget Weather on React
         </Typography>
         <Typography
           variant="subtitle1"
@@ -33,17 +34,19 @@ function Footer(props) {
           color="text.secondary"
           component="p"
         >
-          {description}
+          {/*{description}*/}
+          Widget to check the weather in a certain city anywhere in the world,
+          developed in React Js consuming WeatherApi data
         </Typography>
         <Copyright />
       </Container>
     </Box>
   );
 }
-
+/*
 Footer.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
-
+*/
 export default Footer;
