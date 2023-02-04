@@ -26,6 +26,9 @@ export default function WeatherInfoComp({ weather }) {
       <Root>
         <Divider />
         {/*Info del clima actual */}
+        <i>
+          Last update: {moment(weather?.current.last_updated).format('llll')}
+        </i>
         <Container maxWidth="sm">
           <Card sx={{ display: 'flex' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -35,7 +38,7 @@ export default function WeatherInfoComp({ weather }) {
                   color="text.secondary"
                   component="div"
                 >
-                  {moment(weather?.location.localtime).format('LLL')}
+                  {moment(weather?.location.localtime).format('LLLL')}
                 </Typography>
                 <Typography component="div" variant="h6">
                   {weather?.location.name.toUpperCase()} -{' '}
@@ -98,7 +101,7 @@ export default function WeatherInfoComp({ weather }) {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="b" component="div">
-                      {moment(pron?.date).format('ll')}
+                      {moment(pron?.date).format('dddd, ll')}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                       MIN: {pron?.day.mintemp_c} °
