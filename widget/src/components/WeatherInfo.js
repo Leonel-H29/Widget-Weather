@@ -7,10 +7,13 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+
 import Typography from '@mui/material/Typography';
 import StyleInfo from './WeatherInfo.module.css';
 import moment from 'moment/moment';
 import HourInfoComp from './WeatherInfoForHour';
+import ModalInfoComp from './WeatherInfoModal';
+
 //import { useState, useEffect } from 'react';
 
 const Root = styled('div')(({ theme }) => ({
@@ -116,6 +119,7 @@ export default function WeatherInfoComp({ weather }) {
                       {pron?.day.condition.text}
                     </Typography>
                   </CardContent>
+                  <ModalInfoComp weather={pron} />
                 </Card>
               </Grid>
             ))}
