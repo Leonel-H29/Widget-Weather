@@ -29,7 +29,7 @@ export default function WeatherApiComp() {
     axios
       .get(API_WEATHER_URL + city)
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         setWeather(response.data);
       })
       .catch((error) => {

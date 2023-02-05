@@ -10,6 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StyleInfo from './WeatherInfo.module.css';
 import moment from 'moment/moment';
+import HourInfoComp from './WeatherInfoForHour';
 //import { useState, useEffect } from 'react';
 
 const Root = styled('div')(({ theme }) => ({
@@ -63,6 +64,8 @@ export default function WeatherInfoComp({ weather }) {
               alt={weather?.current.condition.text}
             />
           </Card>
+          <br />
+          <HourInfoComp weather={weather?.forecast.forecastday[0]} />
         </Container>
         {/* Ubicacion de la ciudad en el mapa */}
         <Container>
