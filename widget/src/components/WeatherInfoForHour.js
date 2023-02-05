@@ -41,7 +41,7 @@ export default function HourInfoComp({ weather }) {
     service
       .getData({ from: pagination.from, to: pagination.to })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         setPagination({ ...pagination, count: response.count });
         setWeather_Hour(response.data);
       });

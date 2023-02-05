@@ -51,12 +51,26 @@ export default function WeatherInfoComp({ weather }) {
                 <Typography component="div" variant="h4">
                   {weather?.current.temp_c} °
                 </Typography>
+                <Typography component="div" variant="h6">
+                  {weather?.current.condition.text}
+                </Typography>
                 <Typography
                   variant="subtitle1"
                   color="text.secondary"
                   component="div"
                 >
-                  {weather?.current.condition.text}
+                  Humidity: {weather?.current.humidity} %<br />
+                  Feels like: {weather?.current.feelslike_c} °<br />
+                  Cloud: {weather?.current.cloud} %<br />
+                  Wind kph: {weather?.current.wind_kph} kph
+                  <br />
+                  Wind degree: {weather?.current.wind_degree} °
+                  <br />
+                  Pressure mb: {weather?.current.pressure_mb} mb <br />
+                  Pressure in: {weather?.current.pressure_in} in <br />
+                  Gust kph: {weather?.current.gust_kph} kph
+                  <br />
+                  Vis km: {weather?.current.gust_kph} km
                 </Typography>
               </CardContent>
             </Box>
