@@ -25,6 +25,7 @@ function OptionsLangComp() {
             SetEspanol(true);
             SetIngles(false);
             SetTitle_En('Cambiar a Ingles');
+            SetTitle_Es('El sistema esta en Español');
           }}
           disabled={espanol}
           title={title_es}
@@ -36,6 +37,7 @@ function OptionsLangComp() {
             idioma.establecerLenguaje('en-US');
             SetEspanol(false);
             SetIngles(true);
+            SetTitle_En('The system is now at English');
             SetTitle_Es('Change to Spanish');
           }}
           disabled={ingles}
