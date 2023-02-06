@@ -1,7 +1,19 @@
 {
   "app.title": "Widget Weather on React",
   "app.subtitle": "Write the name of city: ",
+  "app.subtitle-nextdays": "Weather Forecasts at {name} in next 7 days",
   "app.error": "Not found 404",
   "app.error-button": "RELOAD",
-  "app.loadding": "Loadding ..."
+  "app.loadding": "Loadding ...",
+  "app.footer-description": "Widget to check the weather in a certain city anywhere in the world, developed in React Js consuming WeatherApi data",
+  "weather.last_update": "Last update: ",
+  "weather.humidity": "Humidity: ",
+  "weather.feelslike_c": "Feels like: ",
+  "weather.cloud": "Cloud: ",
+  "weather.wind_kph": "Wind kph: ",
+  "weather.wind_degree": "Wind degree: ",
+  "weather.pressure_mb": "Pressure mb: ",
+  "weather.pressure_in": "Pressure in: ",
+  "weather.gust_kph": "Gust kph: ",
+  "weather.vis_km": "Vis km: "
 }

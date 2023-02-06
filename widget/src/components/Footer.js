@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { FormattedMessage } from 'react-intl';
 
 function Copyright() {
   return (
@@ -26,7 +27,10 @@ function Footer(props) {
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
           {/*{title} */}
-          Widget Weather on React
+          <FormattedMessage
+            id="app.title"
+            defaultMessage="Widget Weather on React"
+          />
         </Typography>
         <Typography
           variant="subtitle1"
@@ -35,8 +39,11 @@ function Footer(props) {
           component="p"
         >
           {/*{description}*/}
-          Widget to check the weather in a certain city anywhere in the world,
-          developed in React Js consuming WeatherApi data
+          <FormattedMessage
+            id="app.footer-description"
+            defaultMessage=" Widget to check the weather in a certain city anywhere in the world,
+              developed in React Js consuming WeatherApi data"
+          />
         </Typography>
         <Copyright />
       </Container>

@@ -13,6 +13,7 @@ import StyleInfo from './WeatherInfo.module.css';
 import moment from 'moment/moment';
 import HourInfoComp from './WeatherInfoForHour';
 import ModalInfoComp from './WeatherInfoModal';
+import { FormattedMessage } from 'react-intl';
 
 //import { useState, useEffect } from 'react';
 
@@ -31,7 +32,11 @@ export default function WeatherInfoComp({ weather }) {
         <Divider />
         {/*Info del clima actual */}
         <i>
-          Last update: {moment(weather?.current.last_updated).format('llll')}
+          <FormattedMessage
+            id="weather.last_update"
+            defaultMessage="Last update: "
+          />
+          {moment(weather?.current.last_updated).format('llll')}
         </i>
         <Container maxWidth="sm">
           <Card sx={{ display: 'flex' }}>
@@ -59,18 +64,51 @@ export default function WeatherInfoComp({ weather }) {
                   color="text.secondary"
                   component="div"
                 >
-                  Humidity: {weather?.current.humidity} %<br />
-                  Feels like: {weather?.current.feelslike_c} °<br />
-                  Cloud: {weather?.current.cloud} %<br />
-                  Wind kph: {weather?.current.wind_kph} kph
-                  <br />
-                  Wind degree: {weather?.current.wind_degree} °
-                  <br />
-                  Pressure mb: {weather?.current.pressure_mb} mb <br />
-                  Pressure in: {weather?.current.pressure_in} in <br />
-                  Gust kph: {weather?.current.gust_kph} kph
-                  <br />
-                  Vis km: {weather?.current.gust_kph} km
+                  <FormattedMessage
+                    id="weather.humidity"
+                    defaultMessage="Humidity: "
+                  />
+                  {weather?.current.humidity} %<br />
+                  <FormattedMessage
+                    id="weather.feelslike_c"
+                    defaultMessage="Feels like: "
+                  />
+                  {weather?.current.feelslike_c} °<br />
+                  <FormattedMessage
+                    id="weather.cloud"
+                    defaultMessage="Cloud: "
+                  />
+                  {weather?.current.cloud} %<br />
+                  <FormattedMessage
+                    id="weather.wind_kph"
+                    defaultMessage="Wind kph: "
+                  />
+                  {weather?.current.wind_kph} kph <br />
+                  <FormattedMessage
+                    id="weather.wind_degree"
+                    defaultMessage="Wind degree: "
+                  />
+                  {weather?.current.wind_degree} ° <br />
+                  <FormattedMessage
+                    id="weather.pressure_mb"
+                    defaultMessage="Pressure mb: "
+                  />
+                  {weather?.current.pressure_mb} mb <br />
+                  <FormattedMessage
+                    id="weather.pressure_in"
+                    defaultMessage="Pressure in: "
+                  />
+                  {weather?.current.pressure_in} in <br />
+                  <FormattedMessage
+                    id="weather.gust_kph"
+                    defaultMessage="Gust kph: "
+                  />
+                  {weather?.current.gust_kph} kph <br />
+                  <FormattedMessage
+                    id="weather.vis_km"
+                    defaultMessage="Vis km: "
+                  />
+                  {weather?.current.vis_km} km
                 </Typography>
               </CardContent>
             </Box>
@@ -101,7 +139,15 @@ export default function WeatherInfoComp({ weather }) {
       </Root>
 
       {/*Pronosticos de los siguientes dias */}
-      <h2>Weather Forecasts at {weather?.location.name} in next 7 days</h2>
+      <h2>
+        <FormattedMessage
+          id="app.subtitle-nextdays"
+          values={{
+            name: weather?.location.name,
+          }}
+          defaultMessage="Weather Forecasts at  in next 7 days"
+        />
+      </h2>
       <Container className="pronosticos">
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
           {/*Controlo que el dia actual no coincida con un dia de los pronosticos */}
