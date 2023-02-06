@@ -5,7 +5,11 @@ import { Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { FormattedMessage } from 'react-intl';
+
+//import { langContext, LangProvider } from '../context/lang-context';
 export default function Loadding() {
+  //const idioma = React.useContext(langContext);
   return (
     <Container>
       <Card sx={{ display: 'flex' }}>
@@ -19,7 +23,10 @@ export default function Loadding() {
           <CardContent sx={{ flex: '1 0 auto' }}>
             <CircularProgress />
             <Typography component="div" variant="h6">
-              Loadding ...
+              <FormattedMessage
+                id="app.loadding"
+                defaultMessage="Loadding ..."
+              />
             </Typography>
           </CardContent>
         </Box>

@@ -1,0 +1,7 @@
+{
+  "app.title": "Widget Weather on React",
+  "app.subtitle": "Write the name of city: ",
+  "app.error": "Not found 404",
+  "app.error-button": "RELOAD",
+  "app.loadding": "Loadding ..."
+}

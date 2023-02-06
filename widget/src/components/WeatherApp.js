@@ -7,6 +7,8 @@ import axios from 'axios';
 import Loadding from './Loadding';
 import Error from './Error';
 import Footer from './Footer';
+import { FormattedMessage } from 'react-intl';
+import OptionsLangComp from './OptionsLanguages';
 
 const API_WEATHER_URL =
   process.env.REACT_APP_URL + '&key=' + process.env.REACT_APP_KEY + '&q=';
@@ -52,10 +54,24 @@ export default function WeatherApiComp() {
   return (
     <div>
       <ResponsiveAppBar />
+      <br />
       <Container fixed>
         <section>
-          <h1 style={{ fontFamily: 'sans-serif' }}>Widget Weather on React</h1>
-          <h3 style={{ fontFamily: 'revert' }}>Write the name of city: </h3>
+          <OptionsLangComp />
+        </section>
+        <section>
+          <h1 style={{ fontFamily: 'sans-serif' }}>
+            <FormattedMessage
+              id="app.title"
+              defaultMessage="Widget Weather on React"
+            />
+          </h1>
+          <h3 style={{ fontFamily: 'revert' }}>
+            <FormattedMessage
+              id="app.subtitle"
+              defaultMessage="Write the name of city: "
+            />
+          </h3>
           <WeatherFormComp onChangeCity={handleChangeCity} />
           <br />
           {/*

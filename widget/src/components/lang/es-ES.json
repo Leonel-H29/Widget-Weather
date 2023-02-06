@@ -1,0 +1,7 @@
+{
+  "app.title": "Widget de Tiempo en React",
+  "app.subtitle": "Escriba el nombre de la ciudad: ",
+  "app.error": "No ha sido encontrado 404",
+  "app.error-button": "REFRESCAR",
+  "app.loadding": "Cargando ..."
+}
