@@ -6,17 +6,8 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { CardActions } from '@mui/material';
 import Button from '@mui/material/Button';
-/*
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Paper from '@mui/material/Paper';
-import { ListSubheader } from '@mui/material';
-*/
 import HourInfoComp from './WeatherInfoForHour';
+import { FormattedMessage } from 'react-intl';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -37,7 +28,7 @@ export default function ModalInfoComp({ weather }) {
     <div>
       <CardActions>
         <Button size="small" onClick={handleOpen}>
-          VIEW MORE
+          <FormattedMessage id="app.modal-button" defaultMessage="VIEW MORE" />
         </Button>
       </CardActions>
       <Modal

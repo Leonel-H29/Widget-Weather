@@ -15,6 +15,7 @@ import Paper from '@mui/material/Paper';
 import { ListSubheader } from '@mui/material';
 import { Box, Pagination } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const pageSize = 6;
 export default function HourInfoComp({ weather }) {
@@ -123,7 +124,12 @@ export default function HourInfoComp({ weather }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>View more details: </Typography>
+          <Typography>
+            <FormattedMessage
+              id="app.modal-title"
+              defaultMessage="View more details: "
+            />
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Paper square sx={{ pb: '50px' }}>
