@@ -1,6 +1,6 @@
 import * as React from 'react';
-import MensajesIngles from './../components/lang/en-US.json';
-import MensajesEspanol from './../components/lang/es-ES.json';
+import MensajesIngles from './../lang/en-US.json';
+import MensajesEspanol from './../lang/es-ES.json';
 import { IntlProvider } from 'react-intl';
 
 const langContext = React.createContext();

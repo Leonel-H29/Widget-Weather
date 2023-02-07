@@ -9,6 +9,7 @@ import Error from './Error';
 import Footer from './Footer';
 import { FormattedMessage } from 'react-intl';
 import OptionsLangComp from './OptionsLanguages';
+import traslateServ from '../services/traslate-service';
 
 const API_WEATHER_URL =
   process.env.REACT_APP_URL + '&key=' + process.env.REACT_APP_KEY + '&q=';
@@ -19,6 +20,7 @@ export default function WeatherApiComp() {
   //Muestra la ciudad cargada por defecto
   useEffect(() => {
     loadInfo();
+    traducir();
   }, []);
 
   //Cambia el encabezado por cada ciudad
@@ -49,6 +51,10 @@ export default function WeatherApiComp() {
     setTimeout(() => {
       loadInfo(city);
     }, 3000);
+  }
+
+  function traducir() {
+    console.log(traslateServ.traslate('¡Hello world!'));
   }
 
   return (
