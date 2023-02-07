@@ -89,7 +89,7 @@ export default function HourInfoComp({ weather }) {
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
             <Avatar
-              alt="Remy Sharp"
+              alt={hora.condition.text}
               src={hora.condition.icon}
               title={hora.condition.text}
             />

@@ -13,7 +13,7 @@ import StyleInfo from './WeatherInfo.module.css';
 import moment from 'moment/moment';
 import HourInfoComp from './WeatherInfoForHour';
 import ModalInfoComp from './WeatherInfoModal';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 //import { useState, useEffect } from 'react';
 
@@ -36,7 +36,16 @@ export default function WeatherInfoComp({ weather }) {
             id="weather.last_update"
             defaultMessage="Last update: "
           />
-          {moment(weather?.current.last_updated).format('llll')}
+          {/*{moment(weather?.current.last_updated).format('llll')} */}
+          <FormattedDate
+            value={weather?.current.last_updated}
+            year="numeric"
+            month="long"
+            day="numeric"
+            weekday="long"
+            hour="numeric"
+            minute="numeric"
+          />
         </i>
         <Container maxWidth="sm">
           <Card sx={{ display: 'flex' }}>
@@ -47,7 +56,16 @@ export default function WeatherInfoComp({ weather }) {
                   color="text.secondary"
                   component="div"
                 >
-                  {moment(weather?.location.localtime).format('LLLL')}
+                  {/* {moment(weather?.location.localtime).format('LLLL')}*/}
+                  <FormattedDate
+                    value={weather?.location.localtime}
+                    year="numeric"
+                    month="long"
+                    day="numeric"
+                    weekday="long"
+                    hour="numeric"
+                    minute="numeric"
+                  />
                 </Typography>
                 <Typography component="div" variant="h6">
                   {weather?.location.name.toUpperCase()} -{' '}
@@ -167,7 +185,15 @@ export default function WeatherInfoComp({ weather }) {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="b" component="div">
-                      {moment(pron?.date).format('dddd, ll')}
+                      {/* {moment(pron?.date).format('dddd, ll')}*/}
+
+                      <FormattedDate
+                        value={weather?.current.last_updated}
+                        year="numeric"
+                        month="short"
+                        day="numeric"
+                        weekday="long"
+                      />
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                       MIN: {pron?.day.mintemp_c} °

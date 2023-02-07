@@ -2,6 +2,7 @@
   "app.title": "Widget de Tiempo en React",
   "app.subtitle": "Escriba el nombre de la ciudad: ",
   "app.subtitle-nextdays": "Pronóstico del tiempo en {name} en los próximos 7 dias",
+  "app.label-form": "Ciudad",
   "app.error": "No ha sido encontrado 404",
   "app.error-button": "REFRESCAR",
   "app.modal-title": "Ver más detalles: ",

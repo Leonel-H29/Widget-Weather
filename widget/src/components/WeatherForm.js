@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { TextField, Container } from '@mui/material';
+import { FormattedMessage } from 'react-intl';
 
+const LabelForm = (
+  <FormattedMessage id="app.label-form" defaultMessage="City" />
+);
 export default function WeatherFormComp({ onChangeCity }) {
   const [city, setCity] = useState('');
   const [fail, setFail] = useState(null);
@@ -29,7 +33,7 @@ export default function WeatherFormComp({ onChangeCity }) {
           <TextField
             error={city.length >= 0 && city.length === 2}
             id="filled-basic"
-            label="City"
+            label={LabelForm}
             variant="outlined"
             onChange={onChange}
             fullWidth={true}

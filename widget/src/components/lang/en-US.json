@@ -2,6 +2,7 @@
   "app.title": "Widget Weather on React",
   "app.subtitle": "Write the name of city: ",
   "app.subtitle-nextdays": "Weather Forecasts at {name} in next 7 days",
+  "app.label-form": "City",
   "app.error": "Not found 404",
   "app.error-button": "RELOAD",
   "app.modal-title": "View more details: ",
