@@ -10,7 +10,7 @@ const traslateServ = {
     axios
       .get(API_URL + word)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         return response.data;
       })
       .catch((err) => {

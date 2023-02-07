@@ -1,5 +1,5 @@
 import * as React from 'react';
-import moment from 'moment/moment';
+//import moment from 'moment/moment';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -15,7 +15,7 @@ import Paper from '@mui/material/Paper';
 import { ListSubheader } from '@mui/material';
 import { Box, Pagination } from '@mui/material';
 import { useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 const pageSize = 6;
 export default function HourInfoComp({ weather }) {
@@ -37,6 +37,7 @@ export default function HourInfoComp({ weather }) {
       });
     },
   };
+
   /*Obtengo los datos para cada una de las paginas */
   function getData() {
     service
@@ -95,7 +96,14 @@ export default function HourInfoComp({ weather }) {
             />
           </ListItemAvatar>
           <ListItemText
-            primary={moment(hora.time).format('LT')}
+            //primary={moment(hora.time).format('LT')}
+            primary={
+              <FormattedDate
+                value={hora.time}
+                hour="numeric"
+                minute="numeric"
+              />
+            }
             secondary={
               <React.Fragment>
                 <Typography
