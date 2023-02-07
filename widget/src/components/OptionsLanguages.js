@@ -5,14 +5,25 @@ import en from './../img/united-kingdom.png';
 import { Container, ButtonGroup, Button } from '@mui/material';
 import { langContext } from '../context/lang-context';
 
+const lang = localStorage.getItem('lang');
 function OptionsLangComp() {
   const idioma = React.useContext(langContext);
   const [espanol, SetEspanol] = React.useState(false);
   const [ingles, SetIngles] = React.useState(true);
   const [title_es, SetTitle_Es] = React.useState('Change to Spanish');
-  const [title_en, SetTitle_En] = React.useState(
-    'The system is now at English'
-  );
+  const [title_en, SetTitle_En] = React.useState('');
+
+  React.useEffect(() => {
+    if (lang) {
+      if (lang !== 'en-US') {
+        SetEspanol(true);
+        SetIngles(false);
+        SetTitle_En('Cambiar a Ingles');
+        SetTitle_Es('El sistema esta en Español');
+      }
+    }
+  }, []);
+
   return (
     <Container>
       <ButtonGroup
