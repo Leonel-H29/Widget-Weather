@@ -8,6 +8,7 @@
   "app.modal-title": "View more details: ",
   "app.modal-button": "VIEW MORE: ",
   "app.loadding": "Loadding ...",
+  "app.settings": "Profile GitHub",
   "app.footer-description": "Widget to check the weather in a certain city anywhere in the world, developed in React Js consuming WeatherApi data",
   "weather.last_update": "Last update: ",
   "weather.humidity": "Humidity: ",

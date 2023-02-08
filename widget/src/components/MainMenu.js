@@ -12,8 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FormattedMessage } from 'react-intl';
 
-const settings = ['Profile GitHub'];
+const settings = [
+  <FormattedMessage id="app.settings" defaultMessage="Profile GitHub" />,
+];
+//['Profile GitHub'];
 
 function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -103,7 +107,6 @@ function ResponsiveAppBar() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <a
-                    title={setting}
                     href="https://github.com/Leonel-H29"
                     style={{ textDecoration: 'none' }}
                   >
