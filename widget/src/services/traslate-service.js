@@ -1,20 +1,27 @@
 import axios from 'axios';
-const REACT_APP_KEY_API_TRANSLATE = 'AIzaSyCmiQ2LByFxMUq2ubhz56yuI9W4poe7Jaw';
-const REACT_APP_URL_API_TRANSLATE =
-  'https://translation.googleapis.com/language/translate/v2?target=es&key=';
+//const REACT_APP_KEY_API_TRANSLATE = 'AIzaSyCmiQ2LByFxMUq2ubhz56yuI9W4poe7Jaw';
+//const REACT_APP_URL_API_TRANSLATE = 'https://translation.googleapis.com/language/translate/v2?target=es&key=';
 
-const API_URL =
-  REACT_APP_URL_API_TRANSLATE + REACT_APP_KEY_API_TRANSLATE + '&q=';
+//const API_URL = REACT_APP_URL_API_TRANSLATE + REACT_APP_KEY_API_TRANSLATE + '&q=';
+const API_URL = 'https://libretranslate.de/translate';
 const traslateServ = {
-  traslate: (word) => {
+  traslate: (word, SetTransl) => {
+    const data = {
+      q: word,
+      source: 'en',
+      target: 'es',
+    };
+    //console.log(data);
     axios
-      .get(API_URL + word)
+      .post(API_URL, data)
       .then((response) => {
         //console.log(response);
-        return response.data;
+        SetTransl(response.data.translatedText);
+        //return response.data.translatedText;
       })
       .catch((err) => {
-        return word;
+        //return word;
+        //SetTransl(word);
       });
   },
 };

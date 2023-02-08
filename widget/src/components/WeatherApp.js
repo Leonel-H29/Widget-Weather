@@ -55,6 +55,9 @@ export default function WeatherApiComp() {
 
   //function traducir() {
   //console.log(traslateServ.traslate('¡Hello world!'));
+  //axios.get(`https://libretranslate.de/languages`).then((respuesta) => {
+  //console.log(respuesta.data);
+  //});
   //}
 
   return (

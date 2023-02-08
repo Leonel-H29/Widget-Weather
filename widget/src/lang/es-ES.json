@@ -19,5 +19,8 @@
   "weather.pressure_mb": "Presión atmosférica: ",
   "weather.pressure_in": "Presión in: ",
   "weather.gust_kph": "Ráfagas kph: ",
-  "weather.vis_km": "Vis km: "
+  "weather.vis_km": "Vis km: ",
+  "weather.value-city": "{city}",
+  "weather.value-country": "{country}",
+  "weather.value-weather": "{weather}"
 }

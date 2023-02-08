@@ -32,7 +32,9 @@ function OptionsLangComp() {
       >
         <Button
           onClick={() => {
+            window.location.reload();
             idioma.establecerLenguaje('es-ES');
+
             SetEspanol(true);
             SetIngles(false);
             SetTitle_En('Cambiar a Ingles');
@@ -45,7 +47,9 @@ function OptionsLangComp() {
         </Button>
         <Button
           onClick={() => {
+            window.location.reload();
             idioma.establecerLenguaje('en-US');
+
             SetEspanol(false);
             SetIngles(true);
             SetTitle_En('The system is now at English');

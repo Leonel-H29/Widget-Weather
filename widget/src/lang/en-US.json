@@ -19,5 +19,8 @@
   "weather.pressure_mb": "Pressure mb: ",
   "weather.pressure_in": "Pressure in: ",
   "weather.gust_kph": "Gust kph: ",
-  "weather.vis_km": "Vis km: "
+  "weather.vis_km": "Vis km: ",
+  "weather.value-city": "{city}",
+  "weather.value-country": "{country}",
+  "weather.value-weather": "{weather}"
 }
