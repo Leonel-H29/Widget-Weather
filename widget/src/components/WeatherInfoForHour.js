@@ -12,7 +12,6 @@ import Divider from '@mui/material/Divider';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Paper from '@mui/material/Paper';
-import { ListSubheader } from '@mui/material';
 import { Box, Pagination } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { FormattedMessage, FormattedDate } from 'react-intl';
@@ -86,40 +85,35 @@ export default function HourInfoComp({ weather }) {
         position: 'relative',
       }}
     >
-      <ListSubheader>
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar
-              alt={hora.condition.text}
-              src={hora.condition.icon}
-              title={hora.condition.text}
-            />
-          </ListItemAvatar>
-          <ListItemText
-            //primary={moment(hora.time).format('LT')}
-            primary={
-              <FormattedDate
-                value={hora.time}
-                hour="numeric"
-                minute="numeric"
-              />
-            }
-            secondary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: 'inline' }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                >
-                  <b>{hora.temp_c}</b> °&nbsp;
-                </Typography>
-                - {hora.condition.text}
-              </React.Fragment>
-            }
+      <ListItem alignItems="flex-start">
+        <ListItemAvatar>
+          <Avatar
+            alt={hora.condition.text}
+            src={hora.condition.icon}
+            title={hora.condition.text}
           />
-        </ListItem>
-      </ListSubheader>
+        </ListItemAvatar>
+        <ListItemText
+          //primary={moment(hora.time).format('LT')}
+          primary={
+            <FormattedDate value={hora.time} hour="numeric" minute="numeric" />
+          }
+          secondary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                <b>{hora.temp_c}</b> °&nbsp;
+              </Typography>
+              - {hora.condition.text}
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+
       <Divider variant="inset" component="li" />
     </List>
   ));
