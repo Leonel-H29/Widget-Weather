@@ -10,7 +10,7 @@ import Footer from './Footer';
 import { FormattedMessage } from 'react-intl';
 import OptionsLangComp from './OptionsLanguages';
 //import traslateServ from '../services/traslate-service';
-
+const lang = localStorage.getItem('lang');
 const API_WEATHER_URL =
   process.env.REACT_APP_URL + '&key=' + process.env.REACT_APP_KEY + '&q=';
 export default function WeatherApiComp() {
@@ -30,15 +30,21 @@ export default function WeatherApiComp() {
 
   async function loadInfo(city = 'london') {
     //console.log(API_WEATHER_URL + city);
-    axios
-      .get(API_WEATHER_URL + city)
-      .then((response) => {
-        //console.log(response.data);
-        setWeather(response.data);
-      })
-      .catch((error) => {
-        setFail(error);
-      });
+    var API_URL = API_WEATHER_URL + city;
+    if (lang) {
+      if (lang !== 'en-US') {
+        API_URL = API_URL + '&lang=es';
+      }
+      axios
+        .get(API_URL)
+        .then((response) => {
+          //console.log(response.data);
+          setWeather(response.data);
+        })
+        .catch((error) => {
+          setFail(error);
+        });
+    }
   }
 
   function handleChangeCity(city) {
@@ -52,13 +58,6 @@ export default function WeatherApiComp() {
       loadInfo(city);
     }, 3000);
   }
-
-  //function traducir() {
-  //console.log(traslateServ.traslate('¡Hello world!'));
-  //axios.get(`https://libretranslate.de/languages`).then((respuesta) => {
-  //console.log(respuesta.data);
-  //});
-  //}
 
   return (
     <div>

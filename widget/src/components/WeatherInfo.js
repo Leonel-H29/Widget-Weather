@@ -28,7 +28,7 @@ const Root = styled('div')(({ theme }) => ({
 export default function WeatherInfoComp({ weather }) {
   const [city_transl, SetCity_Transl] = React.useState('');
   const [country_transl, SetCountry_Transl] = React.useState('');
-  const [weather_transl, SetWeather_Transl] = React.useState('');
+  //const [weather_transl, SetWeather_Transl] = React.useState('');
 
   React.useEffect(() => {
     traducir();
@@ -38,14 +38,14 @@ export default function WeatherInfoComp({ weather }) {
   function traducir() {
     if (lang) {
       if (lang !== 'en-US') {
+        /*
         setTimeout(() => {
           traslateServ.traslate(weather?.location.name, SetCity_Transl);
           traslateServ.traslate(weather?.location.country, SetCountry_Transl);
-          traslateServ.traslate(
-            weather?.current.condition.text.toLowerCase(),
-            SetWeather_Transl
-          );
         }, 1000);
+        */
+        traslateServ.traslate(weather?.location.name, SetCity_Transl);
+        traslateServ.traslate(weather?.location.country, SetCountry_Transl);
       }
     }
   }
@@ -111,11 +111,7 @@ export default function WeatherInfoComp({ weather }) {
                 {weather?.current.temp_c} °
               </Typography>
               <Typography component="div" variant="h6">
-                {lang !== 'en-US' ? (
-                  <div>{weather_transl.toUpperCase()}</div>
-                ) : (
-                  <div>{weather?.current.condition.text.toUpperCase()}</div>
-                )}
+                {weather?.current.condition.text}
               </Typography>
               <Typography
                 variant="subtitle1"
@@ -230,7 +226,7 @@ export default function WeatherInfoComp({ weather }) {
                   MAX: {pron?.day.maxtemp_c} °
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {pron?.day.condition.text.toUpperCase()}
+                  {pron?.day.condition.text}
                 </Typography>
               </CardContent>
               <ModalInfoComp weather={pron} />
@@ -239,7 +235,6 @@ export default function WeatherInfoComp({ weather }) {
         ))}
     </Grid>
   );
-
   return (
     <div>
       {diaActual}
@@ -259,7 +254,7 @@ export default function WeatherInfoComp({ weather }) {
             values={{
               name: weather?.location.name.toUpperCase(),
             }}
-            defaultMessage="Weather Forecasts at  in next 7 days"
+            defaultMessage="Weather Forecasts at - in next 7 days"
           />
         )}
       </h2>
