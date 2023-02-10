@@ -5,7 +5,12 @@ LISTA=$(git tag)
 
 for x in $LISTA; do
 	echo "--- Eliminando: $x"
+	#Borro localmente
 	git tag -d $x
+	#Borro remotamente
+	git push --delete origin $x
+	#Espero 3 segundos
+	read -t3
 done
 
 ##Almaceno el nuevo listado
@@ -19,5 +24,4 @@ else
 	echo "Hubo un error a la hora de eliminar los tags"
 fi
 
-##Subo los cambios
-git push --tags
+
