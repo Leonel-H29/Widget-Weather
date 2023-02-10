@@ -28,6 +28,7 @@ export default function WeatherApiComp() {
     document.title = `Weather | ${weather?.location.name ?? ''}`;
   }, [weather]);
 
+  //Cargo los datos del clima segun la ciudad
   async function loadInfo(city = 'london') {
     //console.log(API_WEATHER_URL + city);
     var API_URL = API_WEATHER_URL + city;
@@ -47,13 +48,10 @@ export default function WeatherApiComp() {
     }
   }
 
+  //Se envia por parametro la ciudad nueva
+
   function handleChangeCity(city) {
     setWeather(null);
-    /*
-    navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position);
-    });
-    */
     setTimeout(() => {
       loadInfo(city);
     }, 3000);

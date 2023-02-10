@@ -15,6 +15,7 @@ export default function WeatherFormComp({ onChangeCity }) {
     else setFail(null);
   }, [city]);
 
+  //Actualizo el estado de sitio
   function onChange(e) {
     const value = e.target.value;
     //const errorCity = false;
