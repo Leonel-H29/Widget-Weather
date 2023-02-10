@@ -5,6 +5,7 @@
   "app.label-form": "Ciudad",
   "app.error": "No ha sido encontrado 404",
   "app.error-button": "REFRESCAR",
+  "app.save-button": "GUARDAR CIUDAD",
   "app.modal-title": "Ver más detalles: ",
   "app.modal-button": "VER MÁS",
   "app.loadding": "Cargando ...",

@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import SaveIcon from '@mui/icons-material/Save';
 import OptionsLangComp from './OptionsLanguages';
 import { If, Then } from 'react-if-elseif-else-render';
+
 const lang = localStorage.getItem('lang');
 const API_WEATHER_URL =
   process.env.REACT_APP_URL + '&key=' + process.env.REACT_APP_KEY + '&q=';
@@ -80,7 +81,7 @@ export default function WeatherApiComp() {
       }}
     >
       <SaveIcon />
-      SAVE CITY
+      <FormattedMessage id="app.save-button" defaultMessage="SAVE CITY" />
     </Button>
   );
 

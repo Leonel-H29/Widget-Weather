@@ -4,6 +4,7 @@
   "app.subtitle-nextdays": "Weather Forecasts at {name} in next 7 days",
   "app.label-form": "City",
   "app.error": "Not found 404",
+  "app.save-button": "SAVE CITY",
   "app.error-button": "RELOAD",
   "app.modal-title": "View more details: ",
   "app.modal-button": "VIEW MORE: ",
