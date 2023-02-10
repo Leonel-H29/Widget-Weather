@@ -19,13 +19,34 @@ function Copyright() {
   );
 }
 
+const LinksFooter = (
+  <Typography variant="h6" align="center" gutterBottom>
+    {/*{title} */}
+    <Link
+      color="inherit"
+      href="https://es.reactjs.org/docs/getting-started.html"
+      underline="hover"
+    >
+      React js
+    </Link>
+    &nbsp; &nbsp;
+    <Link
+      color="inherit"
+      href="https://www.weatherapi.com/docs/"
+      underline="hover"
+    >
+      Weather API
+    </Link>
+  </Typography>
+);
+
 function Footer(props) {
   ///const { description, title } = props;
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+        <Typography variant="h4" align="center" gutterBottom>
           {/*{title} */}
           <FormattedMessage
             id="app.title"
@@ -45,6 +66,7 @@ function Footer(props) {
               developed in React Js consuming WeatherApi data"
           />
         </Typography>
+        {LinksFooter}
         <Copyright />
       </Container>
     </Box>
