@@ -209,10 +209,18 @@ export default function WeatherInfoComp({ weather }) {
               />
               <CardContent>
                 <Typography gutterBottom variant="b" component="div">
-                  {/* {moment(pron?.date).format('dddd, ll')}*/}
-
+                  {/**
+                   * {moment(pron?.date).format('dddd, ll')} 
                   <FormattedDate
-                    value={weather?.current.last_updated}
+                    value={pron?.date}
+                    year="numeric"
+                    month="short"
+                    day="numeric"
+                    weekday="long"
+                  />
+                  */}
+                  <FormattedDate
+                    value={moment(pron?.date).format('dddd, ll')}
                     year="numeric"
                     month="short"
                     day="numeric"
