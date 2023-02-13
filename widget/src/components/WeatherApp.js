@@ -73,6 +73,7 @@ export default function WeatherApiComp() {
     <Button
       variant="contained"
       disabled={btn_save}
+      size="small"
       onClick={() => {
         localStorage.setItem(
           'city',

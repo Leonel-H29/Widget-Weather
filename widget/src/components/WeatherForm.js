@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
-import { TextField, Container } from '@mui/material';
+import { TextField, Container, Button, Grid } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
+import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition'; // Importar el hook useSpeechRecognition desde 'react-speech-recognition'
 
 const LabelForm = (
   <FormattedMessage id="app.label-form" defaultMessage="City" />
@@ -31,16 +35,30 @@ export default function WeatherFormComp({ onChangeCity }) {
     <div>
       <Container>
         <form onSubmit={handleSubmit}>
-          <TextField
-            error={city.length >= 0 && city.length === 2}
-            id="filled-basic"
-            label={LabelForm}
-            variant="outlined"
-            onChange={onChange}
-            fullWidth={true}
-            required
-            helperText={fail}
-          />
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} sm={9}>
+              <TextField
+                error={city.length >= 0 && city.length === 2}
+                id="filled-basic"
+                label={LabelForm}
+                variant="outlined"
+                onChange={onChange}
+                fullWidth={true}
+                required
+                helperText={fail}
+              />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={SpeechRecognition.startListening}
+                startIcon={<KeyboardVoiceIcon />}
+              >
+                Voice Search
+              </Button>{' '}
+            </Grid>
+          </Grid>
         </form>
       </Container>
     </div>
