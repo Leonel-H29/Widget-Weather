@@ -254,7 +254,7 @@ export default function WeatherInfoComp({ weather }) {
             values={{
               name: city_transl.toUpperCase(),
             }}
-            defaultMessage="Weather Forecasts at  in next 7 days"
+            defaultMessage="Weather Forecasts at - in next days"
           />
         ) : (
           <FormattedMessage
@@ -262,7 +262,7 @@ export default function WeatherInfoComp({ weather }) {
             values={{
               name: weather?.location.name.toUpperCase(),
             }}
-            defaultMessage="Weather Forecasts at - in next 7 days"
+            defaultMessage="Weather Forecasts at - in next days"
           />
         )}
       </h2>
